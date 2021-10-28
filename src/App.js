@@ -5,6 +5,8 @@ import { auth, logOut, signIn } from './services/firebase'
 import { onAuthStateChanged } from 'firebase/auth'
 import TextCard from './components/TextCard'
 import ListingCard from './components/ListingCard'
+import Navbar from './components/Navbar'
+import Sidebar from './components/Sidebar'
 
 function App() {
 
@@ -16,22 +18,26 @@ function App() {
   }, [user])
 
   return (
-    <div className="App flex flex-col">
-      {
-        user ? 
-          <button onClick={logOut}>Log out</button>
-        :
-          <button onClick={signIn}>Login With Google</button>
-      }
-      <TextCard />
-      <div className="flex flex-col md:flex-row">
-      <ListingCard /> 
-      <ListingCard />
-      <ListingCard />
-      <ListingCard />
-      </div>
+    <>
+      <Navbar user={user}/>
+      <Sidebar />
+      <div className="App flex flex-col">
+        {
+          user ? 
+            <button onClick={logOut}>Log out</button>
+          :
+            <button onClick={signIn}>Login With Google</button>
+        }
+        <TextCard />
+        <div className="flex flex-col md:flex-row">
+        <ListingCard /> 
+        <ListingCard />
+        <ListingCard />
+        <ListingCard />
+        </div>
 
-    </div>
+      </div>
+    </>
   )
 }
 
