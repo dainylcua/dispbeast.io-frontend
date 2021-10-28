@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 const ListingCard = (props) => {
     
     return (
-        <div className="border bg-gray-800 rounded-lg mx-auto w-1/2 overflow-hidden shadow-md md:w-1/5 md:h-1/5 hover:translate-y-2">
+        <div className="bg-gray-800 hover:bg-gray-900 rounded-lg mx-auto w-1/2 overflow-hidden shadow-md md:w-1/5 md:h-1/5 hover:translate-y-2">
             <Link>
                 <div className="flex">
                     <div className="flex-grow-1">
@@ -12,9 +12,9 @@ const ListingCard = (props) => {
                     <div className="p-4 flex-grow-2 w-full flex justify-between">
                         <div className="flex flex-col text-purple-300 font-semibold text-left text-md justify-between">
                             <div>
-                                <Link className="transition ease-in-out hover:text-purple-400 text-xl">
+                                <div className="transition ease-in-out text-xl">
                                     Listing Title
-                                </Link>
+                                </div>
                                 <div>
                                     Listing Seller
                                 </div>
