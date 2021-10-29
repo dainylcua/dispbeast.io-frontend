@@ -18,29 +18,54 @@ function App() {
   }, [user])
 
   return (
-    <div className="h-screen bg-gray-900">
-      <Navbar user={user}/>
-      <Sidebar />
-      <div className="App flex flex-col w-5/6">
-        {
-          user ? 
-            <button onClick={logOut}>Log out</button>
-          :
-            <button onClick={signIn}>Login With Google</button>
-        }
-        <TextCard />
-        <div className="flex flex-col md:flex-row-wrap">
-        <ListingCard /> 
-        <ListingCard />
-        <ListingCard />
-        <ListingCard />
-
-        <ListingCard /> 
-        <ListingCard />
-        <ListingCard />
-        <ListingCard />
+    <div className=" bg-gray-900 w-full">
+      <div className="w-5/6 mx-auto">
+        <Navbar user={user}/>
+        <div className="text-white text-2xl text-center ">
+          <h1 className="text-8xl">Listings</h1>
+          <div>Find a listing here</div>
         </div>
+        <Sidebar />
+        <div className="flex flex-col w-4/6">
+          {
+            user ? 
+              <button onClick={logOut}>Log out</button>
+            :
+              <button onClick={signIn}>Login With Google</button>
+          }
+          <div className="flex flex-col md:flex-col space-y-10">
+          <TextCard />
+            <div className="flex flex-row space-x-10">
+              <ListingCard /> 
+              <ListingCard />
+            </div>
 
+            <div className="flex flex-row space-x-10">
+              <ListingCard /> 
+              <ListingCard />
+            </div>
+
+            <div className="flex flex-row space-x-10">
+              <ListingCard /> 
+              <ListingCard />
+            </div>
+
+            <div className="flex flex-row space-x-10">
+              <ListingCard /> 
+              <ListingCard />
+            </div>
+            
+            <div className="flex flex-row space-x-10">
+              <ListingCard /> 
+              <ListingCard />
+            </div>
+
+          </div>
+          <div>
+            
+          </div>
+
+        </div>
       </div>
     </div>
   )
