@@ -3,14 +3,18 @@ import './App.css'
 import { Switch, Route, Redirect } from 'react-router-dom'
 import { auth, logOut, signIn } from './services/firebase'
 import { onAuthStateChanged } from 'firebase/auth'
-import TextCard from './components/TextCard'
-import ListingCard from './components/ListingCard'
 import Navbar from './components/Navbar'
 import Sidebar from './components/Sidebar'
+import PageInfo from './components/PageInfo'
+import pageData from './data/pageData'
+import Listings from './pages/Listings/Listings'
 
 function App() {
 
   const [ user, setUser ] = useState(null)
+
+  const [ page, setPage ] = useState(0)
+  console.log(pageData[page])
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => setUser(user))
@@ -18,54 +22,18 @@ function App() {
   }, [user])
 
   return (
-    <div className=" bg-gray-900 w-full">
-      <div className="w-5/6 mx-auto">
+    <div className="w-full bg-gray-900 ">
+      <div id="content-wrapper" className="w-5/6 mx-auto">
         <Navbar user={user}/>
-        <div className="text-white text-2xl text-center ">
-          <h1 className="text-8xl">Listings</h1>
-          <div>Find a listing here</div>
-        </div>
+        <PageInfo {...pageData[page]} />
         <Sidebar />
-        <div className="flex flex-col w-4/6">
-          {
-            user ? 
-              <button onClick={logOut}>Log out</button>
-            :
-              <button onClick={signIn}>Login With Google</button>
-          }
-          <div className="flex flex-col md:flex-col space-y-10">
-          <TextCard />
-            <div className="flex flex-row space-x-10">
-              <ListingCard /> 
-              <ListingCard />
-            </div>
-
-            <div className="flex flex-row space-x-10">
-              <ListingCard /> 
-              <ListingCard />
-            </div>
-
-            <div className="flex flex-row space-x-10">
-              <ListingCard /> 
-              <ListingCard />
-            </div>
-
-            <div className="flex flex-row space-x-10">
-              <ListingCard /> 
-              <ListingCard />
-            </div>
-            
-            <div className="flex flex-row space-x-10">
-              <ListingCard /> 
-              <ListingCard />
-            </div>
-
-          </div>
-          <div>
-            
-          </div>
-
-        </div>
+        {
+          user ? 
+            <button className="text-white" onClick={logOut}>Log out</button>
+          :
+            <button className="text-white" onClick={signIn}>Login With Google</button>
+        }
+        <Listings />
       </div>
     </div>
   )
