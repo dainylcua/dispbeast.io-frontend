@@ -1,7 +1,7 @@
 const PageInfo = (props) => {
     return(
         <div className="flex flex-col justify-center h-64 text-2xl text-center text-white bg-gray-800">
-            <h1 className="text-8xl">{props.title}</h1>
+            <h1 className="text-8xl">{props.location.pathname}</h1>
             <div>{props.desc}</div>
         </div>
     )

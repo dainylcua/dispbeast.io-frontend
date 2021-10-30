@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { useLocation } from 'react-router'
+import { useLocation, withRouter } from 'react-router'
 import './App.css'
 import { Switch, Route, Redirect } from 'react-router-dom'
 import { auth, logOut, signIn } from './services/firebase'
@@ -12,28 +12,27 @@ import Listings from './pages/Listings/Listings'
 import SideFilter from './components/SideFilter'
 import Marketplace from './pages/Listings/Marketplace'
 import Homepage from './pages/Homepage/Homepage'
+const SidebarWRouter = withRouter(Sidebar)
+const SideFilterWRouter = withRouter(SideFilter)
+const PageInfoWRouter = withRouter(PageInfo)
 
 function App() {
 
   const [ user, setUser ] = useState(null)
-
-  const [ page, setPage ] = useState(0)
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => setUser(user))
     return() => unsubscribe()
   }, [user])
 
-  const location = useLocation()
-  console.log(location)
 
   return (
     <div className="w-full bg-gray-800">
       <Navbar user={user}/>
       <div id="content-wrapper" className="w-5/6 mx-auto bg-gray-800">
-        <PageInfo {...pageData[page]} />
-        <Sidebar {...pageData[page]} />
-        <SideFilter {...pageData[page]}/>
+        <PageInfoWRouter />
+        <SidebarWRouter />
+        <SideFilterWRouter />
         {
           user ? 
             <button className="text-white" onClick={logOut}>Log out</button>
@@ -41,12 +40,8 @@ function App() {
             <button className="text-white" onClick={signIn}>Login With Google</button>
         }
         <Switch>
-        <Route exact path="/">
-            <Homepage />
-          </Route>
-          <Route path="/listings">
-            <Listings />
-          </Route>
+          <Route exact path="/" component={Homepage} />
+          <Route path="/listings" component={Listings} />
           <Route path="/marketplace">
             <Marketplace />
           </Route>

@@ -1,4 +1,3 @@
-import ListingCard from "../../components/ListingCard"
 import TextCard from "../../components/TextCard"
 
 const Marketplace = () => {
