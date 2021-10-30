@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { useLocation, withRouter } from 'react-router'
+import { withRouter } from 'react-router'
 import './App.css'
 import { Switch, Route, Redirect } from 'react-router-dom'
 import { auth, logOut, signIn } from './services/firebase'
@@ -7,11 +7,11 @@ import { onAuthStateChanged } from 'firebase/auth'
 import Navbar from './components/Navbar'
 import Sidebar from './components/Sidebar'
 import PageInfo from './components/PageInfo'
-import pageData from './data/pageData'
 import Listings from './pages/Listings/Listings'
 import SideFilter from './components/SideFilter'
 import Marketplace from './pages/Listings/Marketplace'
 import Homepage from './pages/Homepage/Homepage'
+import ItemCreate from './pages/DevTest/ItemCreate'
 const SidebarWRouter = withRouter(Sidebar)
 const SideFilterWRouter = withRouter(SideFilter)
 const PageInfoWRouter = withRouter(PageInfo)
@@ -42,9 +42,8 @@ function App() {
         <Switch>
           <Route exact path="/" component={Homepage} />
           <Route path="/listings" component={Listings} />
-          <Route path="/marketplace">
-            <Marketplace />
-          </Route>
+          <Route path="/marketplace" component={Marketplace}/>
+          <Route path="/create" component={ItemCreate}/>
         </Switch>
       </div>
     </div>
