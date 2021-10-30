@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 const ListingCard = (props) => {
     
     return (
-        <div className="flex-auto mx-auto overflow-hidden bg-gray-800 rounded-lg shadow-md hover:bg-gray-900 md:w-1/5 md:h-1/5">
+        <div className="flex-auto mx-auto overflow-hidden bg-gray-900 rounded-lg shadow-md hover:bg-gray-900 md:w-1/5 md:h-1/5">
             <Link>
                 <div className="flex text-white hover:text-purple-300">
                     <div className="flex-grow-1">
