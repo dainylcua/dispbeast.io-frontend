@@ -1,4 +1,6 @@
 import { Link } from 'react-router-dom'
+import { faGoogle } from '@fortawesome/free-brands-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const Navbar = (props) => {
     return(
@@ -17,7 +19,10 @@ const Navbar = (props) => {
                 </div>
                 :
                 <div className="flex pr-8 space-x-6">
+                    <div className="flex flex-row items-center">
+                    <FontAwesomeIcon icon={faGoogle} className="mr-2"/>
                     <Link to="/login" className="hover:text-purple-300">login</Link>
+                    </div>
                     <Link to="/signup" className="hover:text-purple-300">signup</Link>
                 </div>
             }

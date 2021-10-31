@@ -12,6 +12,8 @@ import SideFilter from './components/SideFilter'
 import Marketplace from './pages/Listings/Marketplace'
 import Homepage from './pages/Homepage/Homepage'
 import ItemCreate from './pages/DevTest/ItemCreate'
+import Adventure from './pages/Adventure/Adventure'
+import Footer from './components/Footer'
 const SidebarWRouter = withRouter(Sidebar)
 const SideFilterWRouter = withRouter(SideFilter)
 const PageInfoWRouter = withRouter(PageInfo)
@@ -27,7 +29,7 @@ function App() {
 
 
   return (
-    <div className="w-full bg-gray-800">
+    <div className="flex flex-col w-full min-h-screen bg-gray-800">
       <Navbar user={user}/>
       <div id="content-wrapper" className="w-5/6 mx-auto bg-gray-800">
         <PageInfoWRouter />
@@ -44,8 +46,10 @@ function App() {
           <Route path="/listings" component={Listings} />
           <Route path="/marketplace" component={Marketplace}/>
           <Route path="/create" component={ItemCreate}/>
+          <Route path="/adventure" component={Adventure}/>
         </Switch>
       </div>
+      <Footer user={user} />
     </div>
   )
 }
