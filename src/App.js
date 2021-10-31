@@ -14,6 +14,7 @@ import Homepage from './pages/Homepage/Homepage'
 import ItemCreate from './pages/DevTest/ItemCreate'
 import Adventure from './pages/Adventure/Adventure'
 import Footer from './components/Footer'
+import Character from './pages/Character/Character'
 const SidebarWRouter = withRouter(Sidebar)
 const SideFilterWRouter = withRouter(SideFilter)
 const PageInfoWRouter = withRouter(PageInfo)
@@ -47,6 +48,7 @@ function App() {
           <Route path="/marketplace" component={Marketplace}/>
           <Route path="/create" component={ItemCreate}/>
           <Route path="/adventure" component={Adventure}/>
+          <Route path="/character" component={Character}/>
         </Switch>
       </div>
       <Footer user={user} />
