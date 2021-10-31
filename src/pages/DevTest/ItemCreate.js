@@ -2,6 +2,8 @@ import { useState } from "react"
 
 const ItemCreate = (props) => {
 
+    const API_URL = 'http://localhost:3001/api/items'
+
     const [ formState, setFormState ] = useState({
         name: "",
         itemType: "",
@@ -10,7 +12,15 @@ const ItemCreate = (props) => {
         weight: 0
     })
 
-    const [ effectChildren, setEffectChildren ] = useState(1)
+    const createItem = async (item) => {
+        await fetch(API_URL, {
+            method: 'POST',
+            headers: {
+                'Content-type': 'Application/JSON',
+            },
+            body: JSON.stringify(item)
+        })
+    }
 
     const handleChange = (evt) => {
         setFormState((prevState) => ({
@@ -21,6 +31,8 @@ const ItemCreate = (props) => {
 
     const handleSubmit = (evt) => {
         evt.preventDefault()
+        createItem(formState)
+        alert('Item request sent, check if it succeded!')
         // pass in AJAX request function to post into Items
         setFormState({
             name: "",
@@ -62,7 +74,7 @@ const ItemCreate = (props) => {
                     <textarea name="effects"cols="20" rows="10" value={formState.effects} onChange={handleChange}></textarea>
                 </div>
                 <div>
-                    <label for="weight"></label>
+                    <label for="weight">Weight</label>
                     <input type="number" name="weight" value={formState.weight} onChange={handleChange} />
                 </div>
                 <div>
