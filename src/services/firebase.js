@@ -11,7 +11,8 @@ const firebaseConfig = {
     measurementId: "G-SYDZSP1ZMJ"
 }
 
-const API_URL = 'http://localhost:3001/api/users'
+const USER_URL = 'http://localhost:3001/api/users'
+const NEWITEM_URL = 'http://localhost:3001/api/items/newrandom'
 
 const firebaseApp = initializeApp(firebaseConfig)
 const auth = getAuth(firebaseApp)
@@ -26,13 +27,29 @@ function signIn() {
             email: user.email,
         }
         user.getIdToken().then((result) => {
-            return fetch(API_URL, {
+            fetch(USER_URL, {
                 method: 'POST',
                 headers: {
                     'Content-type': 'Application/JSON',
                     'Authorization': 'Bearer ' + result
                 },
                 body: JSON.stringify(userData)
+            })
+            .then((userResponse) => {
+                return userResponse.json()
+            })
+            .then((userData) => {
+                fetch(NEWITEM_URL, {
+                    method: 'POST',
+                    headers: {
+                        'Content-type': 'Application/JSON',
+                        'Authorization': 'Bearer ' + result
+                    },
+                    body: JSON.stringify(userData)
+                })
+                .then((itemResponse) => {
+                    console.log(itemResponse)
+                })
             })
         })
     })
