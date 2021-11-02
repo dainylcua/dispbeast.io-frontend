@@ -47,9 +47,6 @@ function signIn() {
                     },
                     body: JSON.stringify(userData)
                 })
-                .then((itemResponse) => {
-                    console.log(itemResponse)
-                })
             })
         })
     })
