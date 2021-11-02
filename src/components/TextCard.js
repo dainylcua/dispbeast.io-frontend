@@ -6,9 +6,9 @@ const TextCard = (props) => {
             <Link className="text-white hover:text-purple-400" >
                 <div className="flex items-center justify-center w-full h-40 p-4 flex-grow-2">
                     <div className="font-semibold text-center ">
-                        <Link className="text-4xl">
+                        <div className="text-4xl">
                             Example Text
-                        </Link>
+                        </div>
                     </div>
                 </div>
             </Link>

@@ -15,9 +15,13 @@ import ItemCreate from './pages/DevTest/ItemCreate'
 import Adventure from './pages/Adventure/Adventure'
 import Footer from './components/Footer'
 import Character from './pages/Character/Character'
+import Login from './pages/User/Login'
 const SidebarWRouter = withRouter(Sidebar)
 const SideFilterWRouter = withRouter(SideFilter)
 const PageInfoWRouter = withRouter(PageInfo)
+
+// TODO: ADD USER ID TO ITEMS
+// TODO: ADD LISTING CAPABILITIES
 
 function App() {
 
@@ -36,19 +40,29 @@ function App() {
         <PageInfoWRouter />
         <SidebarWRouter />
         <SideFilterWRouter />
-        {
-          user ? 
-            <button className="text-white" onClick={logOut}>Log out</button>
-          :
-            <button className="text-white" onClick={signIn}>Login With Google</button>
-        }
         <Switch>
-          <Route exact path="/" component={Homepage} />
-          <Route path="/listings" component={Listings} />
-          <Route path="/marketplace" component={Marketplace}/>
-          <Route path="/create" component={ItemCreate}/>
-          <Route path="/adventure" component={Adventure}/>
-          <Route path="/character" component={Character}/>
+          <Route exact path="/">
+            <Homepage />
+          </Route>
+          <Route path="/listings">
+            <Listings />
+          </Route>
+          <Route path="/marketplace">
+            <Marketplace />  
+          </Route>
+          <Route path="/create">
+            <ItemCreate user={user}/>
+          </Route>
+          <Route path="/adventure">
+            <Adventure />
+          </Route>
+          <Route path="/character">
+            <Character />
+          </Route>
+          <Route path="/login" render={() => (
+            <Login user={user} signIn={signIn} logOut={logOut} />
+          )}>
+          </Route>
         </Switch>
       </div>
       <Footer user={user} />

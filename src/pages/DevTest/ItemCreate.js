@@ -1,22 +1,26 @@
 import { useState } from "react"
 
 const ItemCreate = (props) => {
-
+    console.log(props)
     const API_URL = 'http://localhost:3001/api/items'
 
     const [ formState, setFormState ] = useState({
         name: "",
-        itemType: "",
-        rarity: "",
+        itemType: "weapon",
+        rarity: "common",
         effects: [],
         weight: 0
     })
 
     const createItem = async (item) => {
+        if(!props.user) return
+        const token = await props.user.getIdToken()
+        console.log(token)
         await fetch(API_URL, {
             method: 'POST',
             headers: {
                 'Content-type': 'Application/JSON',
+                'Authorization': 'Bearer ' + token
             },
             body: JSON.stringify(item)
         })
@@ -36,8 +40,8 @@ const ItemCreate = (props) => {
         // pass in AJAX request function to post into Items
         setFormState({
             name: "",
-            itemType: "",
-            rarity: "",
+            itemType: "weapon",
+            rarity: "common",
             effects: "",
             weight: 0
         })

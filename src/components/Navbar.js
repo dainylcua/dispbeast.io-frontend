@@ -15,7 +15,7 @@ const Navbar = (props) => {
             {
                 props.user ?
                 <div className="flex pr-8">
-                    <Link to="/dashboard" className="hover:text-purple-300">dashboard</Link>
+                    <Link to="/login" className="hover:text-purple-300">logout</Link>
                 </div>
                 :
                 <div className="flex pr-8 space-x-6">
@@ -23,7 +23,6 @@ const Navbar = (props) => {
                     <FontAwesomeIcon icon={faGoogle} className="mr-2"/>
                     <Link to="/login" className="hover:text-purple-300">login</Link>
                     </div>
-                    <Link to="/signup" className="hover:text-purple-300">signup</Link>
                 </div>
             }
         </nav>
