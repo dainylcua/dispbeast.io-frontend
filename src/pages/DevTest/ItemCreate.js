@@ -13,16 +13,16 @@ const ItemCreate = (props) => {
     })
 
     const createItem = async (item) => {
+        const ownedItem = {...item, owner: props.user.uid}
         if(!props.user) return
         const token = await props.user.getIdToken()
-        console.log(token)
         await fetch(API_URL, {
             method: 'POST',
             headers: {
                 'Content-type': 'Application/JSON',
                 'Authorization': 'Bearer ' + token
             },
-            body: JSON.stringify(item)
+            body: JSON.stringify(ownedItem)
         })
     }
 
