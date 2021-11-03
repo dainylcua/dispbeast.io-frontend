@@ -59,13 +59,13 @@ function App() {
             <Character {...user} />
           </Route>
           <Route exact path="/character/inventory">
-            <Inventory user={user} />
+            <Inventory {...user} />
           </Route>
-          <Route exact path="/character/inventory/:id/">
-            <Item user={user} />
+          <Route exact path="/item/:id/">
+            <Item {...user} />
           </Route>
-          <Route exact path="/character/inventory/:id/list">
-            <ListingCreate user={user} />
+          <Route exact path="/item/:id/list">
+            <ListingCreate {...user} />
           </Route>
           <Route path="/login" render={() => (
             <Login user={user} signIn={signIn} logOut={logOut} />

@@ -5,7 +5,6 @@ import { useState, useEffect } from "react"
 const Character = (user) => {
     
     const [ info, setInfo ] = useState(null)
-
     const USER_URL = `http://localhost:3001/api/users/${user.uid}`
 
     useEffect(() => {
@@ -46,14 +45,14 @@ const Character = (user) => {
                     <div>
                         {info[0].email.substring(0, info[0].email.lastIndexOf("@"))}
                     </div>
-                    <Link to={`/character/inventory/${info[0]._id}`} className="text-6xl text-purple-400 hover:text-purple-300">
+                    <Link to={{ pathname: `/character/inventory`, state: { userInfo: info[0] }}} className="text-6xl text-purple-400 hover:text-purple-300">
                         Inventory
                     </Link>
                 </div>
                 <div className="divide-y divide-gray-600 divide-solid">
                     {/* TODO: Componentize potential, this section can be optimized */}
-                    <div className="flex flex-row pb-4 space-x-6">
-                        <div className="flex flex-col items-center justify-center text-xl">
+                    <div className="flex flex-row justify-between w-48 pb-4">
+                        <div className="flex flex-col items-center justify-center flex-grow text-xl">
                             <div className="font-semibold">
                                 STR
                             </div>
@@ -61,7 +60,7 @@ const Character = (user) => {
                                 {info[0].stats[0]}
                             </div>
                         </div>
-                        <div className="flex flex-col items-center justify-center text-xl">
+                        <div className="flex flex-col items-center justify-center flex-grow text-xl">
                             <div className="font-semibold">
                                 DEX
                             </div>
@@ -69,7 +68,7 @@ const Character = (user) => {
                                 {info[0].stats[1]}
                             </div>
                         </div>
-                        <div className="flex flex-col items-center justify-center text-xl">
+                        <div className="flex flex-col items-center justify-center flex-grow text-xl">
                             <div className="font-semibold">
                                 CON
                             </div>
@@ -78,8 +77,8 @@ const Character = (user) => {
                             </div>
                         </div>
                     </div>
-                    <div className="flex flex-row pt-4 space-x-6">
-                        <div className="flex flex-col items-center justify-center text-xl">
+                    <div className="flex flex-row justify-between pt-4">
+                        <div className="flex flex-col items-center justify-center flex-grow text-xl">
                             <div className="font-semibold">
                                 INT
                             </div>
@@ -87,7 +86,7 @@ const Character = (user) => {
                                 {info[0].stats[3]}
                             </div>
                         </div>
-                        <div className="flex flex-col items-center justify-center text-xl">
+                        <div className="flex flex-col items-center justify-center flex-grow text-xl">
                             <div className="font-semibold">
                                 WIS
                             </div>
@@ -95,7 +94,7 @@ const Character = (user) => {
                                 {info[0].stats[4]}
                             </div>
                         </div>
-                        <div className="flex flex-col items-center justify-center text-xl">
+                        <div className="flex flex-col items-center justify-center flex-grow text-xl">
                             <div className="font-semibold">
                                 CHA
                             </div>
