@@ -23,7 +23,7 @@ const Character = (user) => {
         }
         getUserInfo()
         return() => getUserInfo()
-    }, [])
+    }, [user, USER_URL])
 
     const loaded = () => (
         <div className="flex-auto mx-auto overflow-hidden text-white bg-gray-900 rounded-lg shadow-md">
