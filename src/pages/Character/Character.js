@@ -26,16 +26,16 @@ const Character = (user) => {
 
     const loading = () => (
         <div className="flex-auto mx-auto overflow-hidden bg-gray-900 rounded-lg shadow-md" >
-        <div className="text-white" >
-            <div className="flex items-center justify-center w-full p-4 h-80 flex-grow-2">
-                <div className="font-semibold text-center ">
-                    <div className="text-4xl">
-                        Loading...
+            <div className="text-white" >
+                <div className="flex items-center justify-center w-full p-4 h-80 flex-grow-2">
+                    <div className="font-semibold text-center ">
+                        <div className="text-4xl">
+                            Loading...
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
     )
 
     const loaded = () => (
@@ -43,9 +43,9 @@ const Character = (user) => {
             <div className="flex justify-between w-full h-auto p-4 flex-grow-2">
                 <div className="flex flex-col items-center mx-auto space-y-6 text-6xl font-semibold">
                     <div>
-                        {info[0].email.substring(0, info[0].email.lastIndexOf("@"))}
+                        {info.email.substring(0, info.email.lastIndexOf("@"))}
                     </div>
-                    <Link to={{ pathname: `/character/inventory`, state: { userInfo: info[0] }}} className="text-6xl text-purple-400 hover:text-purple-300">
+                    <Link to={{ pathname: `/character/inventory`, state: { userInfo: info }}} className="text-6xl text-purple-400 hover:text-purple-300">
                         Inventory
                     </Link>
                 </div>
@@ -57,7 +57,7 @@ const Character = (user) => {
                                 STR
                             </div>
                             <div className="font-medium">
-                                {info[0].stats[0]}
+                                {info.stats[0]}
                             </div>
                         </div>
                         <div className="flex flex-col items-center justify-center flex-grow text-xl">
@@ -65,7 +65,7 @@ const Character = (user) => {
                                 DEX
                             </div>
                             <div className="font-medium">
-                                {info[0].stats[1]}
+                                {info.stats[1]}
                             </div>
                         </div>
                         <div className="flex flex-col items-center justify-center flex-grow text-xl">
@@ -73,7 +73,7 @@ const Character = (user) => {
                                 CON
                             </div>
                             <div className="font-medium">
-                                {info[0].stats[2]}
+                                {info.stats[2]}
                             </div>
                         </div>
                     </div>
@@ -83,7 +83,7 @@ const Character = (user) => {
                                 INT
                             </div>
                             <div className="font-medium">
-                                {info[0].stats[3]}
+                                {info.stats[3]}
                             </div>
                         </div>
                         <div className="flex flex-col items-center justify-center flex-grow text-xl">
@@ -91,7 +91,7 @@ const Character = (user) => {
                                 WIS
                             </div>
                             <div className="font-medium">
-                                {info[0].stats[4]}
+                                {info.stats[4]}
                             </div>
                         </div>
                         <div className="flex flex-col items-center justify-center flex-grow text-xl">
@@ -99,7 +99,7 @@ const Character = (user) => {
                                 CHA
                             </div>
                             <div className="font-medium">
-                                {info[0].stats[5]}
+                                {info.stats[5]}
                             </div>
                         </div>
                     </div>

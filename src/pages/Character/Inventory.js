@@ -1,13 +1,12 @@
 import { useState, useEffect } from "react"
 import { useLocation } from "react-router"
 const Inventory = (user) => {
-    const userInfo = useLocation().state.userInfo
-    const INVENTORY_URL = `http://localhost:3001/api/users/inventory`
-
-    const [ inv, setInv ] = useState(null)
+    const mongoId = useLocation().state.userInfo._id
+    const [ inventory, setInventory ] = useState(null)
+    const INVENTORY_URL = `http://localhost:3001/api/items/inventory/${mongoId}`
 
     useEffect(() => {
-        const getUserInfo = async () => {
+        const getInventoryInfo = async () => {
             if(!user.auth) return
             const token = await user.auth.currentUser.getIdToken()
             const response = await fetch(INVENTORY_URL, {
@@ -16,25 +15,41 @@ const Inventory = (user) => {
                     'Authorization': 'Bearer ' + token
                 }
             })
-            const userInfo = await response.json()
-            setInv(userInfo)
+            const inventoryInfo = await response.json()
+            setInventory(inventoryInfo)
         }
-        getUserInfo()
-        return() => getUserInfo()
-    }, [])
+        getInventoryInfo()
+        return() => getInventoryInfo()
+    }, [])    
 
-    return(
-        <div className="flex-auto w-4/6 overflow-hidden bg-gray-900 rounded-lg shadow-md md:h-1/5 hover:translate-y-2">
+    const loading = () => (
+        <div className="flex-auto mx-auto overflow-hidden bg-gray-900 rounded-lg shadow-md" >
             <div className="text-white" >
-                <div className="flex items-center justify-center w-full h-40 p-4 flex-grow-2">
-                    <div className="font-semibold">
+                <div className="flex items-center justify-center w-full p-4 h-80 flex-grow-2">
+                    <div className="font-semibold text-center ">
                         <div className="text-4xl">
-                            Example Text
+                            Loading...
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    )
+
+    const loaded = () => (
+        <div className="flex-auto mx-auto overflow-hidden font-semibold text-white bg-gray-900 rounded-lg shadow-md md:h-1/5 hover:translate-y-2">
+                <div className="flex items-center justify-center w-full h-40 p-4 text-4xl flex-grow-2">
+                    {
+                        inventory.map((item) => (
+                            'item'
+                        ))
+                    }
+                </div>
+        </div>
+    )
+
+    return(
+        inventory ? loaded(): loading()
     )
 }
 
