@@ -1,6 +1,7 @@
 
 import { Link } from "react-router-dom"
 import { useState, useEffect } from "react"
+import LoadingCard from "../../components/LoadingCard"
 
 const Character = (user) => {
     
@@ -23,20 +24,6 @@ const Character = (user) => {
         getUserInfo()
         return() => getUserInfo()
     }, [])
-
-    const loading = () => (
-        <div className="flex-auto mx-auto overflow-hidden bg-gray-900 rounded-lg shadow-md" >
-            <div className="text-white" >
-                <div className="flex items-center justify-center w-full p-4 h-80 flex-grow-2">
-                    <div className="font-semibold text-center ">
-                        <div className="text-4xl">
-                            Loading...
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    )
 
     const loaded = () => (
         <div className="flex-auto mx-auto overflow-hidden text-white bg-gray-900 rounded-lg shadow-md">
@@ -109,7 +96,7 @@ const Character = (user) => {
     )
 
     return(
-        info ? loaded() : loading()
+        info ? loaded() : <LoadingCard />
     )
 }
 
