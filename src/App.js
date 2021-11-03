@@ -5,7 +5,6 @@ import { Switch, Route, Redirect } from 'react-router-dom'
 import { auth, logOut, signIn } from './services/firebase'
 import { onAuthStateChanged } from 'firebase/auth'
 import Navbar from './components/Navbar'
-import Sidebar from './components/Sidebar'
 import PageInfo from './components/PageInfo'
 import Listings from './pages/Listings/Listings'
 import SideFilter from './components/SideFilter'
@@ -16,11 +15,12 @@ import Adventure from './pages/Adventure/Adventure'
 import Footer from './components/Footer'
 import Character from './pages/Character/Character'
 import Login from './pages/User/Login'
-const SidebarWRouter = withRouter(Sidebar)
+import Inventory from './pages/Character/Inventory'
+import Item from './pages/Character/Item'
+import ListingCreate from './pages/Listings/ListingCreate'
 const SideFilterWRouter = withRouter(SideFilter)
 const PageInfoWRouter = withRouter(PageInfo)
 
-// TODO: ADD USER ID TO ITEMS
 // TODO: ADD LISTING CAPABILITIES
 
 function App() {
@@ -34,11 +34,10 @@ function App() {
 
 
   return (
-    <div className="flex flex-col w-full min-h-screen bg-gray-800">
+    <div className="flex flex-col w-full bg-gray-800">
       <Navbar user={user}/>
-      <div id="content-wrapper" className="w-5/6 mx-auto bg-gray-800">
+      <div id="content-wrapper" className="w-5/6 min-h-screen mx-auto bg-gray-800 lg:w-2/3">
         <PageInfoWRouter />
-        <SidebarWRouter />
         <SideFilterWRouter />
         <Switch>
           <Route exact path="/">
@@ -51,13 +50,22 @@ function App() {
             <Marketplace />  
           </Route>
           <Route path="/create">
-            <ItemCreate user={user}/>
+            <ItemCreate user={user} />
           </Route>
           <Route path="/adventure">
             <Adventure />
           </Route>
-          <Route path="/character">
-            <Character />
+          <Route exact path="/character">
+            <Character {...user} />
+          </Route>
+          <Route exact path="/character/inventory">
+            <Inventory user={user} />
+          </Route>
+          <Route exact path="/character/inventory/:id/">
+            <Item user={user} />
+          </Route>
+          <Route exact path="/character/inventory/:id/list">
+            <ListingCreate user={user} />
           </Route>
           <Route path="/login" render={() => (
             <Login user={user} signIn={signIn} logOut={logOut} />

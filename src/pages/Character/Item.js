@@ -1,5 +1,5 @@
 
-const Inventory = () => {
+const Item = () => {
     return(
         <div className="flex-auto w-4/6 overflow-hidden bg-gray-900 rounded-lg shadow-md md:h-1/5 hover:translate-y-2">
             <div className="text-white" >
@@ -15,4 +15,4 @@ const Inventory = () => {
     )
 }
 
-export default Inventory
+export default Item

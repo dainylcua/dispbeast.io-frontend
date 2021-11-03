@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 const Footer = (props) => {
     return(
 
-        <footer className="z-10 flex items-center justify-between h-20 text-2xl font-medium text-white bg-gray-900">
+        <footer className="z-10 flex items-center justify-between h-20 mt-10 text-2xl font-medium text-white bg-gray-900">
             <Link to="/" className="pl-8 text-3xl font-semibold text-purple-400 hover:text-purple-300">dispbeast.io</Link>
             <div className="flex space-x-6">
                 <Link to="/marketplace" className=" hover:text-purple-300">marketplace</Link>
