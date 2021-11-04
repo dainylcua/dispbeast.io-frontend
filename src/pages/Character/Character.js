@@ -37,7 +37,6 @@ const Character = (user) => {
                     </Link>
                 </div>
                 <div className="divide-y divide-gray-600 divide-solid">
-                    {/* TODO: Componentize potential, this section can be optimized */}
                     <div className="flex flex-row justify-between w-48 pb-4">
                         <div className="flex flex-col items-center justify-center flex-grow text-xl">
                             <div className="font-semibold">

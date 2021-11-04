@@ -77,7 +77,6 @@ const Item = (user) => {
             },
             body: JSON.stringify(formattedListing)
         })
-        // TODO: Remove item from user's inventory and perform item transfer
         history.push('/listings')
     }
 
