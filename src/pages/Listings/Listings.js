@@ -36,47 +36,39 @@ const Listings = (user) => {
     
     const loaded = () => (
         <div className="flex flex-col mx-auto space-y-1">
-            {
-                userInfo ?
-                    <div className="text-white" >
-                        <div className="flex w-full h-auto p-4 font-semibold flex-grow-2">
-                            <div className="text-4xl text-green-200">
-                                You currently have {userInfo.money}gp
-                            </div>
-                        </div>
+            <div className="text-white" >
+                <div className="flex w-full h-auto p-4 font-semibold flex-grow-2">
+                    <div className="text-4xl text-green-200">
+                        You currently have {userInfo.money}gp
                     </div>
-                :
-                    null
-            }
+                </div>
+            </div>
             <div className="flex flex-row flex-wrap gap-4">
                     
                 {
-                    userInfo ? 
-                        (!!listings.length) ? 
-                            listings.map((listing) => (
-                                <ListingCard key={listing._id} {...listing} userMoney={userInfo.money} />
-                            ))
-                        :
-                        <div className="flex-auto mx-auto overflow-hidden bg-gray-900 rounded-lg shadow-md" >
-                            <div className="text-white" >
-                                <div className="flex items-center justify-center w-full p-4 h-80 flex-grow-2">
-                                    <div className="font-semibold text-center ">
-                                        <div className="text-4xl">
-                                            No listings available.
-                                        </div>
+                    (!!listings.length) ? 
+                        listings.map((listing) => (
+                            <ListingCard key={listing._id} {...listing} userMoney={userInfo.money} />
+                        ))
+                    :
+                    <div className="flex-auto mx-auto overflow-hidden bg-gray-900 rounded-lg shadow-md" >
+                        <div className="text-white" >
+                            <div className="flex items-center justify-center w-full p-4 h-80 flex-grow-2">
+                                <div className="font-semibold text-center ">
+                                    <div className="text-4xl">
+                                        No listings available.
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    :
-                        null
+                    </div>
                 }
             </div>
         </div>
     )
 
     return(
-        listings ? loaded() : <LoadingCard />
+        userInfo ? loaded() : <LoadingCard />
     )
 }
 

@@ -64,6 +64,7 @@ const Item = (user) => {
         postTime.setDate(postTime.getDate() + 1)
         const formattedListing = {
             ...sellingItem,
+            rarity: item.rarity,
             itemColor: itemColor,
             itemId: item._id,
             itemName: item.name,
@@ -89,7 +90,7 @@ const Item = (user) => {
 
     const loaded = () => (
         <div className="flex-auto mx-auto overflow-hidden font-semibold text-white bg-gray-900 rounded-lg shadow-md md:h-1/5">
-            <div className="flex flex-row items-center w-full p-4 space-y-6 text-4xl justify-evenly h-60">
+            <div className="flex flex-row items-center w-full p-4 space-y-6 text-4xl justify-evenly auto">
                 <div className="flex flex-col items-center justify-center">
                     <div>
                         {item.name}

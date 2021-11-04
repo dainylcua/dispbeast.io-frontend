@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react'
 import './App.css'
+import { useEffect, useState } from 'react'
 import { Switch, Route, Redirect } from 'react-router-dom'
 import { auth, logOut, signIn } from './services/firebase'
 import { onAuthStateChanged } from 'firebase/auth'
@@ -15,14 +15,16 @@ import Inventory from './pages/Character/Inventory'
 import Item from './pages/Character/Item'
 import Quests from './pages/Adventure/Quests'
 import NotFoundPage from './pages/Other/NotFound'
+import ListingPage from './pages/Listings/ListingPage'
 
 // TODO: ADD SPECIFIC PAGE INFO INSTEAD OF PATHS
 // TODO: ADD LISTING BUY CAPABILITIES ( MONEY LOWERING, ITEM TRANSFER, EXPIRY DATE )
 // TODO: COMPONENTIZE STAT BLOCK ON USER PAGE
 // TODO: REMOVE ITEM FROM USER INVENTORY
-// TODO: REMOVE ALERTS IN FIREBASE.JS AND REPLACE WITH REDIRECTS
-// TODO: ADD DARK MODE TOGGLE
+// TODO: FULL RESPONSIVE SITE
 // TODO: READD FILTER ( FOR RESPONSIVE THROUGH BUTTON PRESS )
+// TODO: ADD DARK MODE TOGGLE
+// TODO: OPTIMIZE USER REQUESTS, WHAT CAN YOU PASS?
 
 function App() {
 
@@ -44,6 +46,9 @@ function App() {
           </Route>
           <Route exact path="/listings">
             { localStorage.loggedIn ? <Listings {...user} /> : <Redirect to={{pathname: "/user/dashboard"}} />  }
+          </Route>
+          <Route exact path="/listings/:id">
+            { localStorage.loggedIn ? <ListingPage {...user} /> : <Redirect to={{pathname: "/user/dashboard"}} />  }
           </Route>
           <Route exact path="/adventure">
             { localStorage.loggedIn ? <Adventure /> : <Redirect to={{pathname: "/user/dashboard"}} /> }
