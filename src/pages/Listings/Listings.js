@@ -27,9 +27,22 @@ const Listings = (user) => {
         <div className="flex flex-col mx-auto space-y-10">
             <div className="flex flex-row flex-wrap gap-4">
                 {
-                    listings.map((listing, idx) => (
-                        <ListingCard {...listing} />
-                    ))
+                    (!!listings.length) ? 
+                        listings.map((listing) => (
+                            <ListingCard key={listing._id} {...listing} />
+                        ))
+                    :
+                    <div className="flex-auto mx-auto overflow-hidden bg-gray-900 rounded-lg shadow-md" >
+                        <div className="text-white" >
+                            <div className="flex items-center justify-center w-full p-4 h-80 flex-grow-2">
+                                <div className="font-semibold text-center ">
+                                    <div className="text-4xl">
+                                        No listings available.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 }
             </div>
         </div>

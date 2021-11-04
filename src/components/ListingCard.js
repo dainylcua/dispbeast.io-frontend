@@ -6,7 +6,7 @@ const ListingCard = (props) => {
     
     return (
         <div className="flex-auto mx-auto overflow-hidden bg-gray-900 rounded-lg shadow-md hover:bg-gray-900 md:w-1/4 md:h-1/5">
-            <Link>
+            <Link to={`listings/${props._id}`}>
                 <div className="flex text-white hover:text-purple-300">
                     <div className="self-center pl-4 flex-grow-1">
                         <FontAwesomeIcon icon={faDiceD20} className="object-cover" size="4x" />
