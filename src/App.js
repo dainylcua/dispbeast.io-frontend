@@ -43,19 +43,19 @@ function App() {
             <Homepage />
           </Route>
           <Route exact path="/listings">
-            <Listings {...user} />
+            { user ? <Listings {...user} /> : <Redirect to={{pathname: "/user/dashboard"}} />  }
           </Route>
           <Route exact path="/adventure">
-            <Adventure />
+            { user ? <Adventure /> : <Redirect to={{pathname: "/user/dashboard"}} /> }
           </Route>
           <Route exact path="/character">
-            <Character {...user} />
+            { user ? <Character {...user} /> : <Redirect to={{pathname: "/user/dashboard"}} /> }
           </Route>
           <Route exact path="/character/inventory">
-            <Inventory {...user} />
+            { user ? <Inventory {...user} /> : <Redirect to={{pathname: "/user/dashboard"}} /> }
           </Route>
           <Route path="/item/:id/">
-            <Item {...user} />
+            { user ? <Item {...user} /> : <Redirect to={{pathname: "/user/dashboard"}} /> }
           </Route>
           <Route path="/user/dashboard">
             <Login user={user} signIn={signIn} logOut={logOut} />
