@@ -9,7 +9,6 @@ import Listings from './pages/Listings/Listings'
 import SideFilter from './components/SideFilter'
 import Marketplace from './pages/Listings/Marketplace'
 import Homepage from './pages/Homepage/Homepage'
-import ItemCreate from './pages/DevTest/ItemCreate'
 import Adventure from './pages/Adventure/Adventure'
 import Footer from './components/Footer'
 import Character from './pages/Character/Character'
@@ -44,9 +43,6 @@ function App() {
           </Route>
           <Route path="/marketplace">
             <Marketplace />  
-          </Route>
-          <Route path="/create">
-            <ItemCreate user={user} />
           </Route>
           <Route path="/adventure">
             <Adventure />
