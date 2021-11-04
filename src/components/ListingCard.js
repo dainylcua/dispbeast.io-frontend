@@ -18,8 +18,8 @@ const ListingCard = (props) => {
                                     {props.itemName}
                                 </div>
                             </div>
-                            <div className="text-3xl font-bold text-green-300">
-                                {props.price}
+                            <div className={`text-3xl font-bold ${(props.price > props.userMoney) ? 'text-red-300' : 'text-green-300'}`}>
+                                {props.price}gp
                             </div>
                         </div>
                         
