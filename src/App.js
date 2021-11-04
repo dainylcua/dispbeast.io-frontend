@@ -13,10 +13,11 @@ import Character from './pages/Character/Character'
 import Login from './pages/User/Login'
 import Inventory from './pages/Character/Inventory'
 import Item from './pages/Character/Item'
+import Quests from './pages/Adventure/Quests'
+import NotFoundPage from './pages/Other/NotFound'
 
 // TODO: ADD SPECIFIC PAGE INFO INSTEAD OF PATHS
 // TODO: ADD LISTING BUY CAPABILITIES ( MONEY LOWERING, ITEM TRANSFER, EXPIRY DATE )
-// TODO: ADD REDIRECTS ON PAGES DEPENDENT ON USERS
 // TODO: COMPONENTIZE STAT BLOCK ON USER PAGE
 // TODO: REMOVE ITEM FROM USER INVENTORY
 // TODO: REMOVE ALERTS IN FIREBASE.JS AND REPLACE WITH REDIRECTS
@@ -31,8 +32,7 @@ function App() {
     const unsubscribe = onAuthStateChanged(auth, (user) => setUser(user))
     return() => unsubscribe()
   }, [user])
-
-
+  
   return (
     <div className="flex flex-col w-full bg-gray-800">
       <Navbar user={user}/>
@@ -43,22 +43,28 @@ function App() {
             <Homepage />
           </Route>
           <Route exact path="/listings">
-            { user ? <Listings {...user} /> : <Redirect to={{pathname: "/user/dashboard"}} />  }
+            { localStorage.loggedIn ? <Listings {...user} /> : <Redirect to={{pathname: "/user/dashboard"}} />  }
           </Route>
           <Route exact path="/adventure">
-            { user ? <Adventure /> : <Redirect to={{pathname: "/user/dashboard"}} /> }
+            { localStorage.loggedIn ? <Adventure /> : <Redirect to={{pathname: "/user/dashboard"}} /> }
+          </Route>
+          <Route path="/adventure/quests">
+            { localStorage.loggedIn ? <Quests {...user} /> : <Redirect to={{pathname: "/user/dashboard"}} /> }
           </Route>
           <Route exact path="/character">
-            { user ? <Character {...user} /> : <Redirect to={{pathname: "/user/dashboard"}} /> }
+            { localStorage.loggedIn ? <Character {...user} /> : <Redirect to={{pathname: "/user/dashboard"}} /> }
           </Route>
-          <Route exact path="/character/inventory">
-            { user ? <Inventory {...user} /> : <Redirect to={{pathname: "/user/dashboard"}} /> }
+          <Route path="/character/inventory">
+            { localStorage.loggedIn ? <Inventory {...user} /> : <Redirect to={{pathname: "/user/dashboard"}} /> }
           </Route>
           <Route path="/item/:id/">
-            { user ? <Item {...user} /> : <Redirect to={{pathname: "/user/dashboard"}} /> }
+            { localStorage.loggedIn ? <Item {...user} /> : <Redirect to={{pathname: "/user/dashboard"}} /> }
           </Route>
           <Route path="/user/dashboard">
             <Login user={user} signIn={signIn} logOut={logOut} />
+          </Route>
+          <Route path="*">
+            <NotFoundPage />
           </Route>
         </Switch>
       </div>

@@ -49,13 +49,10 @@ function signIn() {
                 })
             })
         })
+        localStorage.setItem('loggedIn', true)
     })
     .catch((error) => {
-        const errorCode = error.errorCode
-        const errorMessage = error.message
-        const email = error.email
-        const credential = GoogleAuthProvider.credentialFromError(error)
-        // Not sure how to test these - unaware of ways to force errors
+        alert(error)
     }) 
 
 }
@@ -63,6 +60,7 @@ function signIn() {
 function logOut() {
     signOut(auth).then(() => {
         alert('Sign-out Succesful')
+        localStorage.setItem('loggedIn', false)
     }).catch((error) => {
         alert('error occured', error)
     })
