@@ -42,7 +42,7 @@ const Item = (user) => {
                     setItemColor('text-pink-300')
                     break
                 default:
-                    setItemColor('white')
+                    setItemColor('text-white')
                 }
         }
         getItemInfo()
@@ -64,7 +64,9 @@ const Item = (user) => {
         postTime.setDate(postTime.getDate() + 1)
         const formattedListing = {
             ...sellingItem,
+            itemColor: itemColor,
             itemId: item._id,
+            itemName: item.name,
             sellerId: userInfo._id,
             endDate: postTime
         }

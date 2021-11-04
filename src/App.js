@@ -42,10 +42,10 @@ function App() {
           <Route exact path="/">
             <Homepage />
           </Route>
-          <Route path="/listings">
+          <Route exact path="/listings">
             <Listings {...user} />
           </Route>
-          <Route path="/adventure">
+          <Route exact path="/adventure">
             <Adventure />
           </Route>
           <Route exact path="/character">
