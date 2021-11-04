@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react'
-import { withRouter } from 'react-router'
 import './App.css'
 import { Switch, Route, Redirect } from 'react-router-dom'
 import { auth, logOut, signIn } from './services/firebase'
@@ -17,9 +16,6 @@ import Character from './pages/Character/Character'
 import Login from './pages/User/Login'
 import Inventory from './pages/Character/Inventory'
 import Item from './pages/Character/Item'
-import ListingCreate from './pages/Listings/ListingCreate'
-const SideFilterWRouter = withRouter(SideFilter)
-const PageInfoWRouter = withRouter(PageInfo)
 
 // TODO: ADD LISTING CAPABILITIES
 
@@ -37,8 +33,8 @@ function App() {
     <div className="flex flex-col w-full bg-gray-800">
       <Navbar user={user}/>
       <div id="content-wrapper" className="w-5/6 min-h-screen mx-auto bg-gray-800 lg:w-2/3">
-        <PageInfoWRouter />
-        <SideFilterWRouter />
+        <PageInfo />
+        <SideFilter />
         <Switch>
           <Route exact path="/">
             <Homepage />
@@ -63,9 +59,6 @@ function App() {
           </Route>
           <Route exact path="/item/:id/">
             <Item {...user} />
-          </Route>
-          <Route exact path="/item/:id/list">
-            <ListingCreate {...user} />
           </Route>
           <Route path="/login" render={() => (
             <Login user={user} signIn={signIn} logOut={logOut} />

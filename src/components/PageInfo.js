@@ -1,3 +1,4 @@
+import { withRouter } from "react-router"
 const PageInfo = (props) => {
     return(
         <div className="flex flex-col justify-center h-64 text-2xl text-center text-white bg-gray-800">
@@ -7,4 +8,4 @@ const PageInfo = (props) => {
     )
 }
 
-export default PageInfo
+export default withRouter(PageInfo)

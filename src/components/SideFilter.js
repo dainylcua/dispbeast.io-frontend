@@ -1,3 +1,4 @@
+import { withRouter } from "react-router"
 const SideFilter = (props) => {
 
     return(
@@ -10,4 +11,4 @@ const SideFilter = (props) => {
     )
 } 
 
-export default SideFilter
+export default withRouter(SideFilter)
