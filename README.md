@@ -25,7 +25,7 @@ _Note: Website layout is still a work in progress._
 ![5eTale Landing Page](images/5eTale-landing.png "5eTale Landing Page")
 ![5eTale Landing Page Mobile](images/5eTale-browse-landing.png "5eTale Landing Page Mobile")
 ![5eTale Browse Page](images/5eTale-browse.png "5eTale Browse Page")
-![5eTale Dashboard](images/5eTale-dashboard.png "5eTale Dashboard")
+![5eTale Dashboard](images/5eTale-dashboard.png "5eTale Dashboard") 
 
 ## Getting Started
 
