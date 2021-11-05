@@ -1,70 +1,44 @@
-# Getting Started with Create React App
+# dispbeast.io
+*An eCommerce-game website inspired by D&D built with the MERN stack.*
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Purpose
 
-## Available Scripts
+dispbeast.io (named after the [Displacer Beast](https://forgottenrealms.fandom.com/wiki/Displacer_beast)) is an eCommerce-game website inspired by D&D. This can be considered the final module before I integrate my other two projects, [DungeonSheet](https://github.com/dainylcua/dungeon-sheet) and [5eTale](https://github.com/dainylcua/5eTale), into an extensive web application.    
 
-In the project directory, you can run:
+## Technologies Used
 
-### `npm start`
+* HTML5, CSS3, JavaScript
+* MongoDB
+* Express
+* React.js
+* Node.js
+* Heroku
+* Netlify
+* Tailwind CSS
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+*Developed on Ubuntu 20.04.3 LTS*
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Screenshots
 
-### `npm test`
+_Note: Website layout is still a work in progress._
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![5eTale Landing Page](images/5eTale-landing.png "5eTale Landing Page")
+![5eTale Landing Page Mobile](images/5eTale-browse-landing.png "5eTale Landing Page Mobile")
+![5eTale Browse Page](images/5eTale-browse.png "5eTale Browse Page")
+![5eTale Dashboard](images/5eTale-dashboard.png "5eTale Dashboard")
 
-### `npm run build`
+## Getting Started
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Click [here](https://dc-5etale.herokuapp.com/) to open a live version of the app.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Click [here](https://youtu.be/7ZLLTN2gzCU) for a video walkthrough.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Click [here](https://trello.com/b/kwTailwi/user-stories) to see my progress on the app on Trello. This includes more planned features!
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Planned Features
+* Create collections of posts to share with others
+* Create more complex homebrews
+* Improve existing models
+* Improve UI/UX
+* Commenting
+* ...and more!
