@@ -1,26 +1,38 @@
-import { Link } from 'react-router-dom'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faTwitterSquare } from "@fortawesome/free-brands-svg-icons"
+import { faGithubSquare } from "@fortawesome/free-brands-svg-icons"
+import { faLinkedin } from "@fortawesome/free-brands-svg-icons"
 
-const Footer = (props) => {
+const Footer = () => {
     return(
 
-        <footer className="z-10 flex items-center justify-between h-20 mt-10 text-2xl font-medium text-white bg-gray-900">
-            <Link to="/" className="pl-8 text-3xl font-semibold text-purple-400 hover:text-purple-300">dispbeast.io</Link>
-            <div className="flex space-x-6">
-                <Link to="/marketplace" className=" hover:text-purple-300">marketplace</Link>
-                <Link to="/character" className="hover:text-purple-300">character</Link>
-                <Link to="/adventure" className="hover:text-purple-300">adventure</Link>
+        <footer className="z-10 flex items-center justify-between h-20 p-8 mt-10 text-2xl font-medium text-white bg-gray-900">
+            <div>
+                Made by Dainyl Cua
             </div>
-            {
-                props.user ?
-                <div className="flex pr-8">
-                    <Link to="/dashboard" className="hover:text-purple-300">dashboard</Link>
+            <div>
+                <div className="flex flex-row items-center space-x-4">
+                    <div>
+                        Find me here:
+                    </div>
+                    <div>
+                        <a href="https://twitter.com/dainylcua">
+                            <FontAwesomeIcon icon={faTwitterSquare} size="2x" />
+                        </a>
+                    </div>
+                    <div>
+                        <a href="https://www.linkedin.com/in/dainylcua/">
+                            <FontAwesomeIcon icon={faLinkedin} size="2x" />
+                        </a>
+                    </div>
+                    <div>
+                    <a href="https://github.com/dainylcua">
+                            <FontAwesomeIcon icon={faGithubSquare} size="2x" />
+                        </a>
+                    </div>
                 </div>
-                :
-                <div className="flex pr-8 space-x-6">
-                    <Link to="/login" className="hover:text-purple-300">login</Link>
-                    <Link to="/signup" className="hover:text-purple-300">signup</Link>
-                </div>
-            }
+            </div>
+
         </footer>
     )
 } 
