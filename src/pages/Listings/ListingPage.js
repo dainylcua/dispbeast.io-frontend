@@ -4,17 +4,20 @@ import LoadingCard from '../../components/LoadingCard'
 
 const ListingPage = (user) => {
     
+    const history = useHistory()
     const params = useParams()
-    const [ listingInfo, setListingInfo ] = useState(null)
-    const [ userMoney, setUserMoney ] = useState(0)
-    const LISTINGINFO_URL = `http://localhost:3001/api/listings/${params.id}`
+    const [ listingInfo, setListingInfo ] = useState({})
+    const [ userInfo, setUserInfo ] = useState(0)
+    const LISTING_URL = `http://localhost:3001/api/listings/${params.id}`
     const USER_URL = `http://localhost:3001/api/users/${user.uid}`
+    const BUY_URL = `http://localhost:3001/api/users/purchase`
+    const ITEMTRANSFER_URL = `http://localhost:3001/api/items/${listingInfo.itemId}`
 
     useEffect(() => {
-        const getListingInfoAndUserMoney = async () => {
+        const getListingInfoAndUser = async () => {
             if(!user.auth) return
             const token = await user.auth.currentUser.getIdToken()
-            const response = await fetch(LISTINGINFO_URL, {
+            const response = await fetch(LISTING_URL, {
                 method: 'GET',
                 headers: {
                     'Authorization': 'Bearer ' + token
@@ -30,20 +33,46 @@ const ListingPage = (user) => {
                 }
             })
             const userInfo = await userResponse.json()
-            const userMoney = userInfo.money
-            setUserMoney(userMoney)
+            setUserInfo(userInfo)
         }
-        getListingInfoAndUserMoney()
+        getListingInfoAndUser()
         // Still getting a useEffect memory leak issue?
-        return() => getListingInfoAndUserMoney()
-    }, [user, LISTINGINFO_URL, USER_URL])
+        return() => getListingInfoAndUser()
+    }, [user, LISTING_URL, USER_URL])
+
+    const buyItem = async () => {
+        if(userInfo.money < listingInfo.price) return
+        const token = await user.auth.currentUser.getIdToken()
+        const transaction = {
+            price: listingInfo.price,
+            buyer: userInfo._id,
+            seller: listingInfo.sellerId
+        }
+        await fetch(BUY_URL, {
+            method: 'PUT',
+            headers: {
+                'Content-type': 'Application/JSON',
+                'Authorization': 'Bearer ' + token
+            },
+            body: JSON.stringify(transaction)
+        })
+        // await fetch(BUY_URL, {
+        //     method: 'POST',
+        //     headers: {
+        //         'Content-type': 'Application/JSON',
+        //         'Authorization': 'Bearer ' + token
+        //     },
+        //     body: JSON.stringify()
+        // })
+        history.push('/listings')
+    }
 
 
     const loaded = () => (
         <div className="flex flex-col">
             <div className="flex w-full h-auto p-4 font-semibold flex-grow-2">
                 <div className="text-4xl text-green-200">
-                    You currently have {userMoney}gp
+                    You currently have {userInfo.money}gp
                 </div>
             </div>
             <div className="flex-auto w-full mx-auto overflow-hidden font-semibold text-white bg-gray-900 rounded-lg shadow-md md:h-1/5">
@@ -58,9 +87,17 @@ const ListingPage = (user) => {
                         Cost: {listingInfo.price}gp
                     </div>
                     {
-                        userMoney > listingInfo.price ? 
-                            <div>
-                                Buy Item
+                        userInfo.money > listingInfo.price ? 
+                            <div onClick={buyItem} className="flex-auto mx-auto overflow-hidden bg-green-800 rounded-lg shadow-md cursor-pointer hover:bg-green-600 hover:shadow-inner md:h-1/5">
+                                <div className="text-white hover:text-green-100" >
+                                    <div className="flex items-center justify-center w-full h-auto p-4 flex-grow-2">
+                                        <div className="font-semibold text-center ">
+                                            <div className="text-4xl">
+                                                Buy Item
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         :
                             <div className="text-red-300">
@@ -73,7 +110,7 @@ const ListingPage = (user) => {
     )
 
     return(
-        userMoney ? loaded() : <LoadingCard />
+        userInfo.money ? loaded() : <LoadingCard />
     )
 }
 
