@@ -34,6 +34,8 @@ Click [here](https://dispbeastio.netlify.app/) to open a live version of the app
 
 Click [here](https://trello.com/b/KdxYXip8/dispbeastio-progress) to see my progress on the app on Trello.
 
+Click [here](https://github.com/dainylcua/dispbeast.io-backend) to check out the backend GitHub.
+
 ## Unsolved Issues
 
 * UseEffect() memory leaks
