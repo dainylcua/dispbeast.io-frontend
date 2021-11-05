@@ -56,14 +56,26 @@ const ListingPage = (user) => {
             },
             body: JSON.stringify(transaction)
         })
-        // await fetch(BUY_URL, {
-        //     method: 'POST',
-        //     headers: {
-        //         'Content-type': 'Application/JSON',
-        //         'Authorization': 'Bearer ' + token
-        //     },
-        //     body: JSON.stringify()
-        // })
+        await fetch(ITEMTRANSFER_URL, {
+            method: 'PUT',
+            headers: {
+                'Content-type': 'Application/JSON',
+                'Authorization': 'Bearer ' + token
+            },
+            body: JSON.stringify(transaction)
+        })
+        await fetch(LISTING_URL, {
+            method: 'DELETE',
+            headers: {
+                'Content-type': 'Application/JSON',
+                'Authorization': 'Bearer ' + token
+            }
+        })
+    }
+
+    const handleBuy = async (evt) => {
+        evt.preventDefault()
+        await buyItem()
         history.push('/listings')
     }
 
@@ -88,7 +100,7 @@ const ListingPage = (user) => {
                     </div>
                     {
                         userInfo.money > listingInfo.price ? 
-                            <div onClick={buyItem} className="flex-auto mx-auto overflow-hidden bg-green-800 rounded-lg shadow-md cursor-pointer hover:bg-green-600 hover:shadow-inner md:h-1/5">
+                            <div onClick={handleBuy} className="flex-auto mx-auto overflow-hidden bg-green-800 rounded-lg shadow-md cursor-pointer hover:bg-green-600 hover:shadow-inner md:h-1/5">
                                 <div className="text-white hover:text-green-100" >
                                     <div className="flex items-center justify-center w-full h-auto p-4 flex-grow-2">
                                         <div className="font-semibold text-center ">

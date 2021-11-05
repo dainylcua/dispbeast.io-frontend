@@ -26,6 +26,7 @@ import ListingPage from './pages/Listings/ListingPage'
 // TODO: ADD DARK MODE TOGGLE
 // TODO: OPTIMIZE USER REQUESTS, WHAT CAN YOU PASS?
 // TODO: OPTIMIZE BUTTONS AND CARDS: UNNECESSARY DIVS?
+// TODO: FIX MEMORY LEAKS
 
 function App() {
 
