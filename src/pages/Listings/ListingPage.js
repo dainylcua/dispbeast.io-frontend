@@ -9,10 +9,15 @@ const ListingPage = (user) => {
     const params = useParams()
     const [ listingInfo, setListingInfo ] = useState({})
     const [ userInfo, setUserInfo ] = useState(0)
-    const LISTING_URL = `http://localhost:3001/api/listings/${params.id}`
-    const USER_URL = `http://localhost:3001/api/users/${user.uid}`
-    const BUY_URL = `http://localhost:3001/api/users/purchase`
-    const ITEMTRANSFER_URL = `http://localhost:3001/api/items/${listingInfo.itemId}`
+    // const LISTING_URL = `http://localhost:3001/api/listings/${params.id}`
+    // const USER_URL = `http://localhost:3001/api/users/${user.uid}`
+    // const ITEMTRANSFER_URL = `http://localhost:3001/api/items/${listingInfo.itemId}`
+    // const BUY_URL = `http://localhost:3001/api/users/purchase`
+    
+    const LISTING_URL = `http://dispbeastio-backend.herokuapp.com/api/listings/${params.id}`
+    const USER_URL = `http://dispbeastio-backend.herokuapp.com/api/users/${user.uid}`
+    const BUY_URL = `http://dispbeastio-backend.herokuapp.com/api/users/purchase`
+    const ITEMTRANSFER_URL = `http://dispbeastio-backend.herokuapp.com/api/items/${listingInfo.itemId}`
 
     useEffect(() => {
         const getListingInfoAndUser = async () => {

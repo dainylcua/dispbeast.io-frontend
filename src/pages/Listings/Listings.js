@@ -6,9 +6,12 @@ import PageDescription from '../../components/PageDescription'
 const Listings = (user) => {
     const [ listings, setListings ] = useState(null)
     const [ userInfo, setUserInfo ] = useState(null)
-    const LISTINGS_URL = 'http://localhost:3001/api/listings'
-    const USER_URL = `http://localhost:3001/api/users/${user.uid}`
+    // const LISTINGS_URL = 'http://localhost:3001/api/listings'
+    // const USER_URL = `http://localhost:3001/api/users/${user.uid}`
 
+    const LISTINGS_URL = 'http://dispbeastio-backend.herokuapp.com/api/listings'
+    const USER_URL = `http://dispbeastio-backend.herokuapp.com/api/users/${user.uid}`
+    
     useEffect(() => {
         const getListingsAndUser = async () => {
             if(!user.auth) return

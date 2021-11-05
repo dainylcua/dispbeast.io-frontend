@@ -7,7 +7,8 @@ import PageDescription from "../../components/PageDescription"
 const Inventory = (user) => {
     const userInfo = useLocation().state.userInfo
     const [ inventory, setInventory ] = useState(null)
-    const INVENTORY_URL = `http://localhost:3001/api/items/inventory/${userInfo._id}`
+    // const INVENTORY_URL = `http://localhost:3001/api/items/inventory/${userInfo._id}`
+    const INVENTORY_URL = `http://dispbeastio-backend.herokuapp.com/api/items/inventory/${userInfo._id}`
 
     useEffect(() => {
         const getInventoryInfo = async () => {

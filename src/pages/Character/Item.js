@@ -10,8 +10,11 @@ const Item = (user) => {
     const [ itemColor, setItemColor ] = useState(null)
     const [ listShow, setListShow ] = useState(false)
     const [ listState, setListState ] = useState({price:''})
-    const ITEM_URL = `http://localhost:3001/api/items/${params.id}`
-    const POSTLISTING_URL = 'http://localhost:3001/api/listings'
+    // const ITEM_URL = `http://localhost:3001/api/items/${params.id}`
+    // const POSTLISTING_URL = 'http://localhost:3001/api/listings'
+    
+    const ITEM_URL = `http://dispbeastio-backend.herokuapp.com/api/items/${params.id}`
+    const POSTLISTING_URL = 'http://dispbeastio-backend.herokuapp.com/api/listings'
     const history = useHistory()
 
     useEffect(() => {

@@ -11,8 +11,11 @@ const firebaseConfig = {
     measurementId: "G-SYDZSP1ZMJ"
 }
 
-const USER_URL = 'http://localhost:3001/api/users'
-const NEWITEM_URL = 'http://localhost:3001/api/items/newrandom'
+// const USER_URL = 'http://localhost:3001/api/users'
+// const NEWITEM_URL = 'http://localhost:3001/api/items/newrandom'
+
+const USER_URL = 'http://dispbeastio-backend.herokuapp.com/api/users'
+const NEWITEM_URL = 'http://dispbeastio-backend.herokuapp.com/api/items/newrandom'
 
 const firebaseApp = initializeApp(firebaseConfig)
 const auth = getAuth(firebaseApp)
