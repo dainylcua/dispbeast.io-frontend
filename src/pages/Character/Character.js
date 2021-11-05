@@ -8,7 +8,7 @@ const Character = (user) => {
     
     const [ info, setInfo ] = useState(null)
     // const USER_URL = `http://localhost:3001/api/users/${user.uid}`
-    const USER_URL = `http://dispbeastio-backend.herokuapp.com/api/users/${user.uid}`
+    const USER_URL = `https://dispbeastio-backend.herokuapp.com/api/users/${user.uid}`
 
     useEffect(() => {
         const getUserInfo = async () => {

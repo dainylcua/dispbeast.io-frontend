@@ -14,10 +14,10 @@ const ListingPage = (user) => {
     // const ITEMTRANSFER_URL = `http://localhost:3001/api/items/${listingInfo.itemId}`
     // const BUY_URL = `http://localhost:3001/api/users/purchase`
     
-    const LISTING_URL = `http://dispbeastio-backend.herokuapp.com/api/listings/${params.id}`
-    const USER_URL = `http://dispbeastio-backend.herokuapp.com/api/users/${user.uid}`
-    const BUY_URL = `http://dispbeastio-backend.herokuapp.com/api/users/purchase`
-    const ITEMTRANSFER_URL = `http://dispbeastio-backend.herokuapp.com/api/items/${listingInfo.itemId}`
+    const LISTING_URL = `https://dispbeastio-backend.herokuapp.com/api/listings/${params.id}`
+    const USER_URL = `https://dispbeastio-backend.herokuapp.com/api/users/${user.uid}`
+    const BUY_URL = `https://dispbeastio-backend.herokuapp.com/api/users/purchase`
+    const ITEMTRANSFER_URL = `https://dispbeastio-backend.herokuapp.com/api/items/${listingInfo.itemId}`
 
     useEffect(() => {
         const getListingInfoAndUser = async () => {

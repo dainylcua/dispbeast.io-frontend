@@ -9,8 +9,8 @@ const Listings = (user) => {
     // const LISTINGS_URL = 'http://localhost:3001/api/listings'
     // const USER_URL = `http://localhost:3001/api/users/${user.uid}`
 
-    const LISTINGS_URL = 'http://dispbeastio-backend.herokuapp.com/api/listings'
-    const USER_URL = `http://dispbeastio-backend.herokuapp.com/api/users/${user.uid}`
+    const LISTINGS_URL = 'https://dispbeastio-backend.herokuapp.com/api/listings'
+    const USER_URL = `https://dispbeastio-backend.herokuapp.com/api/users/${user.uid}`
     
     useEffect(() => {
         const getListingsAndUser = async () => {

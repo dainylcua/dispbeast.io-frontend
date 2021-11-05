@@ -4,7 +4,7 @@ const LootCard = ({mongoUser, user}) => {
 
     const [ itemInfo, setItemInfo ] = useState(null)
     // const NEWITEM_URL = 'http://localhost:3001/api/items/loot'
-    const NEWITEM_URL = 'http://dispbeastio-backend.herokuapp.com/api/items/loot'
+    const NEWITEM_URL = 'https://dispbeastio-backend.herokuapp.com/api/items/loot'
     
 
     const lootClick = async () => {

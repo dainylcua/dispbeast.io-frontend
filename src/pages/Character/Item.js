@@ -13,8 +13,8 @@ const Item = (user) => {
     // const ITEM_URL = `http://localhost:3001/api/items/${params.id}`
     // const POSTLISTING_URL = 'http://localhost:3001/api/listings'
     
-    const ITEM_URL = `http://dispbeastio-backend.herokuapp.com/api/items/${params.id}`
-    const POSTLISTING_URL = 'http://dispbeastio-backend.herokuapp.com/api/listings'
+    const ITEM_URL = `https://dispbeastio-backend.herokuapp.com/api/items/${params.id}`
+    const POSTLISTING_URL = 'https://dispbeastio-backend.herokuapp.com/api/listings'
     const history = useHistory()
 
     useEffect(() => {
