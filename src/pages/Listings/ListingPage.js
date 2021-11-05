@@ -37,7 +37,6 @@ const ListingPage = (user) => {
             setUserInfo(userInfo)
         }
         getListingInfoAndUser()
-        // Still getting a useEffect memory leak issue?
         return() => getListingInfoAndUser()
     }, [user, LISTING_URL, USER_URL])
 

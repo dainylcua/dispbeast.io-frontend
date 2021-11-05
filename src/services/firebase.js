@@ -52,14 +52,13 @@ function signIn() {
         localStorage.setItem('loggedIn', true)
     })
     .catch((error) => {
-        alert(error)
+        alert('error occured', error)
     }) 
 
 }
 
 function logOut() {
     signOut(auth).then(() => {
-        alert('Sign-out Succesful')
         localStorage.setItem('loggedIn', false)
     }).catch((error) => {
         alert('error occured', error)

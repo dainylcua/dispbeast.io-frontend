@@ -47,7 +47,6 @@ const Item = (user) => {
                 }
         }
         getItemInfo()
-        // Still getting a useEffect memory leak issue?
         return() => getItemInfo()
     }, [user, ITEM_URL])
 
