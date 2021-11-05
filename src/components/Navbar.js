@@ -5,8 +5,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 const Navbar = (props) => {
 
     return(
-        <nav className="z-10 flex flex-col items-center justify-between h-auto p-6 font-medium text-white bg-gray-900 md:flex-row md:h-16 text-md md:text-2xl">
-            <Link to="/" className="text-3xl font-semibold text-purple-400 hover:text-purple-300">dispbeast.io</Link>
+        <nav className="z-10 flex flex-col items-center justify-between h-auto p-6 text-lg font-medium text-white bg-gray-900 md:flex-row md:h-16 md:text-2xl">
+            <Link to="/" className="text-4xl font-semibold text-purple-400 hover:text-purple-300">dispbeast.io</Link>
             {
                 props.user ?
                 <>

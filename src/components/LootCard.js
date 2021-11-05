@@ -24,9 +24,9 @@ const LootCard = ({mongoUser, user}) => {
 
 
     return (
-        <div onClick={lootClick} className="flex-auto mx-auto overflow-hidden bg-gray-900 rounded-lg shadow-md cursor-pointer hover:bg-gray-700 hover:shadow-inner md:h-1/5 hover:translate-y-2">
+        <div onClick={lootClick} className="flex-auto h-auto mx-auto overflow-hidden bg-gray-900 rounded-lg shadow-md cursor-pointer hover:bg-gray-700 hover:shadow-inner">
             <div className="text-white hover:text-purple-400" >
-                <div className="flex flex-col items-center justify-center w-full h-40 p-4 flex-grow-2">
+                <div className="flex flex-col items-center justify-center w-full h-auto p-4 flex-grow-2">
                     <div className="text-4xl font-semibold text-center">
                         <div>
                             Loot an Item

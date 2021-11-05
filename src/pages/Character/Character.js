@@ -31,7 +31,7 @@ const Character = (user) => {
         <>
         <PageDescription pageName="Character" />
             <div className="flex-auto mx-auto overflow-hidden text-white bg-gray-900 rounded-lg shadow-md">
-                <div className="flex justify-between w-full h-auto p-4 flex-grow-2">
+                <div className="flex flex-col justify-between w-full h-auto p-4 md:flex-row flex-grow-2">
                     <div className="flex flex-col items-center mx-auto space-y-6 text-6xl font-semibold">
                         <div>
                             {info.email.substring(0, info.email.lastIndexOf("@"))}
@@ -40,9 +40,9 @@ const Character = (user) => {
                             Inventory
                         </Link>
                     </div>
-                    <div className="divide-y divide-gray-600 divide-solid">
-                        <div className="flex flex-row justify-between w-48 pb-4">
-                            <div className="flex flex-col items-center justify-center flex-grow text-xl">
+                    <div className="w-auto h-auto p-4 divide-y divide-gray-600 divide-solid">
+                        <div className="flex flex-row justify-between gap-4">
+                            <div className="flex flex-col items-center justify-center flex-grow text-xl ">
                                 <div className="font-semibold">
                                     STR
                                 </div>
@@ -67,7 +67,7 @@ const Character = (user) => {
                                 </div>
                             </div>
                         </div>
-                        <div className="flex flex-row justify-between pt-4">
+                        <div className="flex flex-row justify-between">
                             <div className="flex flex-col items-center justify-center flex-grow text-xl">
                                 <div className="font-semibold">
                                     INT
