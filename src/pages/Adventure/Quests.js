@@ -1,6 +1,7 @@
 import LootCard from "../../components/LootCard"
 import { useState, useEffect } from 'react'
 import LoadingCard from "../../components/LoadingCard"
+import PageDescription from "../../components/PageDescription"
 
 
 const Quests = (user) => {
@@ -28,13 +29,16 @@ const Quests = (user) => {
 
 
     const loaded = () => (
-        <div className="flex flex-col mx-auto">
-            <div className="flex flex-col space-y-10 md:flex-col">
-                <div className="w-1/2 mx-auto cursor-pointer">
-                    <LootCard user={user} mongoUser={mongoUser}  />
+        <>
+            <PageDescription pageName="Quests" description="WIP: battle monsters and get loot" />
+            <div className="flex flex-col mx-auto">
+                <div className="flex flex-col space-y-10 md:flex-col">
+                    <div className="w-1/2 mx-auto cursor-pointer">
+                        <LootCard user={user} mongoUser={mongoUser}  />
+                    </div>
                 </div>
             </div>
-        </div>
+        </>
     )
     
     return(

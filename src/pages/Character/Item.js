@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useParams, useLocation, withRouter, useHistory } from 'react-router'
 import LoadingCard from '../../components/LoadingCard'
+import PageDescription from '../../components/PageDescription'
 
 const Item = (user) => {
     const userInfo = useLocation().state.userInfo
@@ -89,52 +90,55 @@ const Item = (user) => {
     }
 
     const loaded = () => (
-        <div className="flex-auto mx-auto overflow-hidden font-semibold text-white bg-gray-900 rounded-lg shadow-md md:h-1/5">
-            <div className="flex flex-row items-center w-full p-4 space-y-6 text-4xl justify-evenly auto">
-                <div className="flex flex-col items-center justify-center">
-                    <div>
-                        {item.name}
+        <>
+            <PageDescription pageName={item.name}/>   
+            <div className="flex-auto mx-auto overflow-hidden font-semibold text-white bg-gray-900 rounded-lg shadow-md md:h-1/5">
+                <div className="flex flex-row items-center w-full p-4 space-y-6 text-4xl justify-evenly auto">
+                    <div className="flex flex-col items-center justify-center">
+                        <div>
+                            {item.name}
+                        </div>
+                        {
+                            item.itemType === 'armor' ? 
+                            <div>
+                                Armor Class: {item.ac}
+                            </div>
+                            : 
+                            <div>
+                                Damage: {`${item.damage.quantity}d${item.damage.dice} ${item.damage.type}`}
+                            </div>
+                        }
+                        <div className={`${itemColor}`}>
+                            Rarity: {item.rarity}
+                        </div>
                     </div>
                     {
-                        item.itemType === 'armor' ? 
-                        <div>
-                            Armor Class: {item.ac}
+                        item.owner === userInfo._id ? 
+                        <div className="flex flex-col items-center">
+                            <div onClick={toggleListShow} className="w-64 p-4 text-center text-white bg-purple-900 rounded-lg shadow-md cursor-pointer hover:text-purple-100 hover:bg-purple-600">
+                                List for sale?
+                            </div>
+                            <div>
+                                {
+                                    listShow ? 
+                                        <form onSubmit={handleSubmit}>
+                                            <div className="flex flex-row items-center pt-6 space-x-6 text-3xl">
+                                                <label className="text-4xl" htmlFor="price">Price:</label>
+                                                <input className="w-32 h-12 px-4 font-medium bg-gray-700 rounded-lg" type="text" name="price" value={listState.price} onChange={onListChange}/>
+                                                <input type="submit" value="Submit" className="w-32 h-12 font-semibold text-white bg-red-800 rounded-lg shadow-md cursor-pointer hover:text-red-100 hover:bg-red-600" />
+                                            </div>
+                                        </form>
+                                    : 
+                                    null
+                                }
+                            </div>
                         </div>
                         : 
-                        <div>
-                            Damage: {`${item.damage.quantity}d${item.damage.dice} ${item.damage.type}`}
-                        </div>
+                        null
                     }
-                    <div className={`${itemColor}`}>
-                        Rarity: {item.rarity}
-                    </div>
                 </div>
-                {
-                    item.owner === userInfo._id ? 
-                    <div className="flex flex-col items-center">
-                        <div onClick={toggleListShow} className="w-64 p-4 text-center text-white bg-purple-900 rounded-lg shadow-md cursor-pointer hover:text-purple-100 hover:bg-purple-600">
-                            List for sale?
-                        </div>
-                        <div>
-                            {
-                                listShow ? 
-                                    <form onSubmit={handleSubmit}>
-                                        <div className="flex flex-row items-center pt-6 space-x-6 text-3xl">
-                                            <label className="text-4xl" htmlFor="price">Price:</label>
-                                            <input className="w-32 h-12 px-4 font-medium bg-gray-700 rounded-lg" type="text" name="price" value={listState.price} onChange={onListChange}/>
-                                            <input type="submit" value="Submit" className="w-32 h-12 font-semibold text-white bg-red-800 rounded-lg shadow-md cursor-pointer hover:text-red-100 hover:bg-red-600" />
-                                        </div>
-                                    </form>
-                                : 
-                                null
-                            }
-                        </div>
-                    </div>
-                    : 
-                    null
-                }
             </div>
-        </div>
+        </>
     )
 
     return(

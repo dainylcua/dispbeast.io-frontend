@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
-import { useParams, useLocation, withRouter, useHistory } from 'react-router'
+import { useParams, withRouter, useHistory } from 'react-router'
 import LoadingCard from '../../components/LoadingCard'
+import PageDescription from '../../components/PageDescription'
 
 const ListingPage = (user) => {
     
@@ -81,44 +82,47 @@ const ListingPage = (user) => {
 
 
     const loaded = () => (
-        <div className="flex flex-col">
-            <div className="flex w-full h-auto p-4 font-semibold flex-grow-2">
-                <div className="text-4xl text-green-200">
-                    You currently have {userInfo.money}gp
+        <>
+        <PageDescription pageName={listingInfo.itemName} />
+            <div className="flex flex-col">
+                <div className="flex w-full h-auto p-4 font-semibold flex-grow-2">
+                    <div className="text-4xl text-green-200">
+                        You currently have {userInfo.money}gp
+                    </div>
                 </div>
-            </div>
-            <div className="flex-auto w-full mx-auto overflow-hidden font-semibold text-white bg-gray-900 rounded-lg shadow-md md:h-1/5">
-                <div className="flex flex-col items-center h-auto p-4 space-y-6 text-4xl justify-evenly">
-                    <div>
-                        Item Name: {listingInfo.itemName}
-                    </div>
-                    <div>
-                        Rarity: {listingInfo.rarity}
-                    </div>
-                    <div className="text-green-300">
-                        Cost: {listingInfo.price}gp
-                    </div>
-                    {
-                        userInfo.money > listingInfo.price ? 
-                            <div onClick={handleBuy} className="flex-auto mx-auto overflow-hidden bg-green-800 rounded-lg shadow-md cursor-pointer hover:bg-green-600 hover:shadow-inner md:h-1/5">
-                                <div className="text-white hover:text-green-100" >
-                                    <div className="flex items-center justify-center w-full h-auto p-4 flex-grow-2">
-                                        <div className="font-semibold text-center ">
-                                            <div className="text-4xl">
-                                                Buy Item
+                <div className="flex-auto w-full mx-auto overflow-hidden font-semibold text-white bg-gray-900 rounded-lg shadow-md md:h-1/5">
+                    <div className="flex flex-col items-center h-auto p-4 space-y-6 text-4xl justify-evenly">
+                        <div>
+                            Item Name: {listingInfo.itemName}
+                        </div>
+                        <div>
+                            Rarity: {listingInfo.rarity}
+                        </div>
+                        <div className="text-green-300">
+                            Cost: {listingInfo.price}gp
+                        </div>
+                        {
+                            userInfo.money > listingInfo.price ? 
+                                <div onClick={handleBuy} className="flex-auto mx-auto overflow-hidden bg-green-800 rounded-lg shadow-md cursor-pointer hover:bg-green-600 hover:shadow-inner md:h-1/5">
+                                    <div className="text-white hover:text-green-100" >
+                                        <div className="flex items-center justify-center w-full h-auto p-4 flex-grow-2">
+                                            <div className="font-semibold text-center ">
+                                                <div className="text-4xl">
+                                                    Buy Item
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        :
-                            <div className="text-red-300">
-                                You don't have enough to buy this item
-                            </div>
-                    }
+                            :
+                                <div className="text-red-300">
+                                    You don't have enough to buy this item
+                                </div>
+                        }
+                    </div>
                 </div>
             </div>
-        </div>
+        </>
     )
 
     return(

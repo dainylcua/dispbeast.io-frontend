@@ -4,7 +4,6 @@ import { Switch, Route, Redirect } from 'react-router-dom'
 import { auth, logOut, signIn } from './services/firebase'
 import { onAuthStateChanged } from 'firebase/auth'
 import Navbar from './components/Navbar'
-import PageInfo from './components/PageInfo'
 import Listings from './pages/Listings/Listings'
 import Homepage from './pages/Homepage/Homepage'
 import Adventure from './pages/Adventure/Adventure'
@@ -41,7 +40,6 @@ function App() {
     <div className="flex flex-col w-full bg-gray-800">
       <Navbar user={user}/>
       <div id="content-wrapper" className="w-5/6 min-h-screen mx-auto bg-gray-800 lg:w-2/3">
-        <PageInfo />
         <Switch>
           <Route exact path="/">
             <Homepage />
