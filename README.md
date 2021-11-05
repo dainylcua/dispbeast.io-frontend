@@ -40,9 +40,10 @@ Click [here](https://trello.com/b/KdxYXip8/dispbeastio-progress) to see my progr
 
 ## Planned Features
 
-* Improved UI/UX (animations, transitions, better responsive layouts, better feedback, consistent layouts and components)
+* **Change the document title and metadata (react-helmet implmenetation)**
+* Improved UI/UX (animations, transitions, better responsive layouts, better feedback, consistent layouts and components, dark mode)
 * Comprehensive information display (listing end dates, equipment modifiers, damage calculation, armor class)
 * Additional and improved models (more references, guilds, parties, quests)
-* Improved listings
+* Improved listings (deleting, add timer, see poster, filters)
 * Combat implementation
 * ...and more!
