@@ -2,11 +2,11 @@ const Homepage = () => {
     return(
         <div className="flex flex-col mx-auto mt-8">
             <div className="flex flex-col text-2xl font-semibold text-white space-y-7">
-                    <div className="space-y-1 font-extrabold border-b text-9xl">
+                    <div className="space-y-1 text-5xl font-extrabold border-b md:text-8xl">
                         <div className="text-purple-400">
                             dispbeast.io
                         </div>
-                        <div className="text-6xl">
+                        <div className="text-xl md:text-5xl">
                             adventure. loot. live.
                         </div>
                     </div>

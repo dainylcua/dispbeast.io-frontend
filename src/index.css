@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@media screen and (min-width: 768px) {
+    #content-wrapper {
+        min-height: calc(100vh - theme('spacing.44'))
+    }
+}
+
+@media screen and (max-width: 767px) {
+    #content-wrapper {
+        min-height: calc(100vh - theme('spacing.36'))
+    }
+}

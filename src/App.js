@@ -39,7 +39,7 @@ function App() {
   return (
     <div className="flex flex-col w-full bg-gray-800">
       <Navbar user={user}/>
-      <div id="content-wrapper" className="w-5/6 min-h-screen mx-auto bg-gray-800 lg:w-2/3">
+      <div id="content-wrapper" className="w-5/6 mx-auto bg-gray-800 lg:w-2/3">
         <Switch>
           <Route exact path="/">
             <Homepage />

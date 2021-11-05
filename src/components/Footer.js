@@ -6,13 +6,13 @@ import { faLinkedin } from "@fortawesome/free-brands-svg-icons"
 const Footer = () => {
     return(
 
-        <footer className="z-10 flex items-center justify-between h-20 p-8 mt-10 text-2xl font-medium text-white bg-gray-900">
+        <footer className="z-10 flex items-center justify-between h-16 p-8 mt-12 text-xl font-medium text-white bg-gray-900 md:text-2xl">
             <div>
                 Made by Dainyl Cua
             </div>
             <div>
                 <div className="flex flex-row items-center space-x-4">
-                    <div>
+                    <div className="hidden md:visible">
                         Find me here:
                     </div>
                     <div>
